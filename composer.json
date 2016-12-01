@@ -1,0 +1,12 @@
+{
+    "name": "romenys/framework",
+    "description": "The libraries required to run romenys core",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Khalid Sookia",
+            "email": "khalidsookia@gmail.com"
+        }
+    ],
+    "require": {}
+}
