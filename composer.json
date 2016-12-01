@@ -8,5 +8,11 @@
             "email": "khalidsookia@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": { "Romenys\\Framework\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    }
 }
