@@ -149,7 +149,7 @@ class HandleRequest
         $controller = $this->getController();
         $action = $this->getAction();
 
-        $controller = new $controller;
+        $controller = new $controller();
 
         $controller->{$action}($this->request);
     }
