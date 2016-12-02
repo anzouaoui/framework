@@ -38,7 +38,9 @@ class HandleRequest
 
     private function setRouteName()
     {
-        $this->routeName = $this->request->getGet()['route'];
+        if (!isset($this->request->getGet()['route'])) $this->routeName = 'default';
+
+        else $this->routeName = $this->request->getGet()['route'];
 
         return $this;
     }
@@ -51,13 +53,12 @@ class HandleRequest
     private function setRouteDetails()
     {
         foreach ($this->getRoutes() as $routeName => $routeDetails) {
+
             try {
                 if ($this->getRouteName() !== "") {
                     if ($routeName === $this->getRouteName()) {
                         $this->routeDetails = $routeDetails;
                         break;
-                    } else {
-                        throw new \RuntimeException("No route found");
                     }
                 } else {
                     throw new \RuntimeException("No route was set");
