@@ -11,6 +11,11 @@ namespace Romenys\Framework\Components;
 
 class Model
 {
+    public function __construct($data = [])
+    {
+        if (!empty($data)) $this->hydrate($data);
+    }
+
     public function hydrate(array $data)
     {
         foreach ($data as $name => $value) {
