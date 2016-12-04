@@ -19,7 +19,7 @@ class DB extends \PDO
     public function __construct()
     {
         $this->setParameters();
-        $this->get();
+        $this->connect();
     }
 
     private function setParameters()
@@ -36,7 +36,7 @@ class DB extends \PDO
         return $this->parameters;
     }
 
-    public function get()
+    public function connect()
     {
         if (strtolower($this->getParameters()["db_driver"]) === "pdo_mysql") {
             try {
