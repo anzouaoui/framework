@@ -14,6 +14,8 @@ class Model
     public function __construct($data = [])
     {
         if (!empty($data)) $this->hydrate($data);
+
+        if (method_exists($this, "setCreatedAt") && empty($data["createdAt"])) $this->setCreatedAt("NOW");
     }
 
     public function hydrate(array $data)
