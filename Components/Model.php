@@ -27,4 +27,9 @@ class Model
             }
         }
     }
+
+    public function toArray()
+    {
+        return (array) $this;
+    }
 }
