@@ -52,6 +52,6 @@ class UrlGenerator
     public function absolute($routeName = null)
     {
         $url = $this->getRequest()->getUrl();
-        return $url["scheme"] . "://" . $url["host"] . $this->routes[$routeName]["path"];
+        return $url["scheme"] . "://" . $url["host"] . '/app.php?route=' . $routeName;
     }
 }
