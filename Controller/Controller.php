@@ -10,6 +10,7 @@ namespace Romenys\Framework\Controller;
 
 
 use Knp\Snappy\Pdf;
+use Romenys\Framework\Components\Parameters;
 
 class Controller
 {
@@ -61,15 +62,20 @@ class Controller
     }
 
     /**
-     * @param string $template absolute path to template
-     * @param array $data
+     * @param string $templateDir Directory containing the template
+     * @param string $template Template full file name
+     * @param array $data Data to inject to the template
      *
      * @return string
      */
-    public function render($template, $data)
+    public function render($templateDir, $template, $data)
     {
-        $mustache = new \Mustache_Engine;
+        $parameters = new Parameters();
+        $cache = $parameters->getParameters()["cache"];
 
-        return $mustache->render(file_get_contents($template), $data);
+        $loader = new \Twig_Loader_Filesystem($templateDir);
+        $twig = new \Twig_Environment($loader, ["cache" => $cache]);
+
+        return $twig->render($template, $data);
     }
 }
