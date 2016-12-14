@@ -54,8 +54,8 @@ class Parameters
         $environment = $this->getEnvironment();
         $this->parameters = json_decode(file_get_contents("app/config/parameters.json"), true);
 
-        if (file_exists("app/config/parameters/" . $environment .".json")) {
-            $this->setEnvironmentSpecificParameters(json_decode(file_get_contents("app/config/parameters/" . $environment .".json"), true));
+        if (file_exists("app/config/parameters/" . $environment . ".json")) {
+            $this->setEnvironmentSpecificParameters(json_decode(file_get_contents("app/config/parameters/" . $environment . ".json"), true));
         }
 
         if (is_array($this->getEnvironmentSpecificParameters()) && !empty($this->getEnvironmentSpecificParameters())) {
