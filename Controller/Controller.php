@@ -14,53 +14,6 @@ use Romenys\Framework\Components\Parameters;
 
 class Controller
 {
-    private $snappy;
-
-    private $pdfBin = 'vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64';
-
-    public function __construct()
-    {
-        $this->setSnappy();
-    }
-
-    /**
-     * @return Pdf
-     */
-    public function getSnappy()
-    {
-        return $this->snappy;
-    }
-
-    /**
-     * @return Controller
-     */
-    public function setSnappy()
-    {
-        $this->snappy = new Pdf($this->getPdfBin());
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPdfBin()
-    {
-        return $this->pdfBin;
-    }
-
-    /**
-     * @param string pdfBin
-     *
-     * @return Controller
-     */
-    public function setPdfBin($pdfBin)
-    {
-        $this->pdfBin = $pdfBin;
-
-        return $this;
-    }
-
     /**
      * @param string $templateDir Directory containing the template
      * @param string $template Template full file name
