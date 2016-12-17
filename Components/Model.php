@@ -28,8 +28,20 @@ class Model
         }
     }
 
-    public function toArray()
+    public function toArray($data = null)
     {
-        return (array) $this;
+        $data = is_null($data) ? $this : $data;
+
+        if (is_array($data) || is_object($data)) {
+            $result = array();
+
+            foreach ($data as $key => $value) {
+                $result[$key] = $this->toArray($value);
+            }
+
+            return $result;
+        }
+
+        return $data;
     }
 }
