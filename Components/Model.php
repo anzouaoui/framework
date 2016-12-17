@@ -28,6 +28,13 @@ class Model
         }
     }
 
+    /**
+     * Transform actual object to array. Only "public" or "protected" properties will be created as array
+     *
+     * @param null|array|object $data
+     *
+     * @return array|null
+     */
     public function toArray($data = null)
     {
         $data = is_null($data) ? $this : $data;
