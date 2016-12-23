@@ -15,7 +15,7 @@ class Model
     {
         if (!empty($data)) $this->hydrate($data);
 
-        if (method_exists($this, "setCreatedAt") && empty($data["createdAt"])) $this->setCreatedAt("NOW");
+        if (method_exists($this, "setCreated_at") && empty($data["created_at"])) $this->setCreated_at("NOW");
     }
 
     public function hydrate(array $data)
